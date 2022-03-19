@@ -7,13 +7,13 @@ import 'package:firebase_auth/firebase_auth.dart';
 part 'authentication_state.dart';
 
 class AuthenticationCubit extends Cubit<AuthenticationState> {
-  final AuthenticationRepository authenticationRepository;
-  AuthenticationCubit(this.authenticationRepository)
+  final AuthenticationRepository _authenticationRepository;
+  AuthenticationCubit(this._authenticationRepository)
       : super(AuthenticationInitial());
   loginWithEmailPassword(String email, String password) async {
     emit(AuthenticationLoading());
     try {
-      UserCredential userCredential = await authenticationRepository
+      UserCredential userCredential = await _authenticationRepository
           .loginWithEmailPassword(email, password);
       if (userCredential != null) {
         emit(AuthenticationLoaded(userCredential));
@@ -30,7 +30,7 @@ class AuthenticationCubit extends Cubit<AuthenticationState> {
       String name, String email, String password, String mobno) async {
     emit(AuthenticationLoading());
     try {
-      UserCredential userCredential = await authenticationRepository
+      UserCredential userCredential = await _authenticationRepository
           .registerWithEmailPassword(name, email, password, mobno);
       if (userCredential != null) {
         emit(AuthenticationLoaded(userCredential));
