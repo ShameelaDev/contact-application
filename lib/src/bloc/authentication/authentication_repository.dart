@@ -14,7 +14,10 @@ class AuthenticationRepository {
   }
 
   registerWithEmailPassword(
-      String name, String email, String password, String mobno) async {
+    String name,
+    String email,
+    String password,
+  ) async {
     try {
       UserCredential userCredential = await FirebaseAuth.instance
           .createUserWithEmailAndPassword(email: email, password: password);

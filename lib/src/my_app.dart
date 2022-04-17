@@ -1,5 +1,5 @@
 import 'package:contact_application/src/bloc/authentication/authentication_repository.dart';
-import 'package:contact_application/src/pages/home_page.dart';
+import 'package:contact_application/src/pages/login_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
-        home: const HomePage(),
+        home: const LoginPage(),
       ),
     );
   }
